@@ -1,0 +1,44 @@
+{% extends 'blog/base.html' %}
+{% load static %}
+
+
+{% block content %}
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12 col-md-9">
+      {% block body %} {% block body-a %} {% endblock body-a %} {% endblock body %}
+    </div>
+    <div class="hidden-xs	hidden-sm	 col-md-3">
+
+      <div class="panel panel-success">
+        <div class="panel-heading">
+          <div style="width:100%; margin:5px 0;">
+            <img class="img-circle img-responsive" src="{% static 'img/1.jpg' %}"/>
+          </div>
+        </div>
+      </div>
+
+      <div class="panel panel-success">
+        <div class="panel-heading text-center">
+          <span class="panel-title">分类</span>
+        </div>
+        <div class="panel-body text-center">
+          <a href="{% url 'blog:blogs' %}">全部({{ blog_count }})</a>
+        </div>
+        <hr style="padding:0;margin:0">
+        {% for blogtype in blogtypes %}
+        <div class="panel-body text-center">
+          <a href="{% url 'blog:blogtype' blogtype.id %}">{{ blogtype.title }}
+            ({{ blogtype.blog_count }})</a>
+        </div>
+        <hr style="padding:0;margin:0">
+        {% empty %}
+        <div class="panel-body text-center">
+          暂无分类
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}
