@@ -1,5 +1,25 @@
+
+
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    font-family: -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI", Roboto,
+    "Helvetica Neue", Arial, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+}
+a{
+    color: #777;
+}
+
 a:hover
 {
     color: #ccc;
     text-decoration: none;
+}
+
+ul {
+    list-style-type: none!important;
 }

@@ -1,4 +1,4 @@
-{% extends 'blog/base.html' %}
+{% extends 'blog/blogbase.html' %}
 {% load static %}
 
 {% block title %} {{ blog.title }} {% endblock %}
@@ -22,10 +22,10 @@
           发表于：{{ blog.created_time | date:'Y-m-d H:i' }}
         </small>
       </div>
-      <hr style="padding:0;margin:0">
+      <hr>
       <div class="panel-body">
         <p>{{ blog.content|safe }}</p>
-        <hr>
+        <hr style="margin-top:100px;">
       </div>
       <div class="panel-body text-center">感谢您的阅读</div>
     </div>
