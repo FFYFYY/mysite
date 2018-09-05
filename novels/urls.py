@@ -3,4 +3,5 @@ from . import views
 
 urlpatterns = [
     path('', views.novels, name='novels'),
+    #path('index', views.)
 ]

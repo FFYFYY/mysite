@@ -6,12 +6,8 @@
     padding: 0;
 }
 
-body{
-    font-family: -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI", Roboto,
-    "Helvetica Neue", Arial, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
-}
 a{
-    color: #777;
+    color: #333;
 }
 
 a:hover
@@ -22,4 +18,12 @@ a:hover
 
 ul {
     list-style-type: none!important;
+}
+
+
+.pre{
+    line-height: 1.25;
+    font-size: 120%;
+    background-color:#fff!important;
+    border:0!important;
 }

@@ -60,7 +60,7 @@ def login_view(request):
     return render(request, 'users/login.html', context)
 
 
-def send_verification_code(request):
+def send_code(request):
     email = request.GET.get('email')
     data = {}
     if User.objects.filter(email=email).exists():
@@ -79,9 +79,13 @@ def send_verification_code(request):
     msg["To"] = to
     try:
         s = smtplib.SMTP_SSL("smtp.qq.com", 465)
+
         s.login(user, pwd)
+
         s.sendmail(user, to, msg.as_string())
+
         s.quit()
+
     except smtplib.SMTPException:
         data['status'] = 'ERROR'
         data['message'] = '请输入正确的邮箱地址'

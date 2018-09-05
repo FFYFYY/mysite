@@ -1,4 +1,6 @@
-{% extends 'blog/base.html' %}
+{% extends 'base.html' %}
+
+{% block title %}注册{% endblock %}
 
 {% block content %}
 <div class="container">
@@ -42,7 +44,7 @@ return false;
 }
 // 发送验证码
 $.ajax({
-url: "{% url 'users:send_verification_code' %}",
+url: "{% url 'users:send_code' %}",
 type: "GET",
 data: {
 "email": email,
