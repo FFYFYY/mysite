@@ -1,14 +1,9 @@
 {% extends 'blog/blogbase.html' %}
-{% load static %}
 
 {% block title %} {{ blog.title }} {% endblock %}
 
-{% block head_extends %}
-<link rel="stylesheet" type="text/css" href="{% static 'css/monokai.css' %}">
-{% endblock %}
-
 {% block body %}
-<div class="containner-fluid" role="navigation">
+<div class="containner-fluid">
   <div class="panel panel-success">
     <div style="overflow: auto;">
       <div class="panel-body text-center">

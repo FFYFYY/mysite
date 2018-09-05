@@ -11,13 +11,13 @@
     <div class="panel-body text-center">
       <a href="{% url 'blog:blogs' %}">全部({{ blog_count }})</a>
     </div>
-    <hr style="padding:0;margin:0">
+    <hr class="hr">
     {% for blogtype in blogtypes %}
     <div class="panel-body text-center">
       <a href="{% url 'blog:blogtype' blogtype.id %}">{{ blogtype.title }}
         ({{ blogtype.blog_count }})</a>
     </div>
-    <hr style="padding:0;margin:0">
+    <hr class="hr">
     {% empty %}
     <div class="panel-body text-center">
       暂无分类

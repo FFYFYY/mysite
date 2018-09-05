@@ -4,10 +4,12 @@
 * {
     margin: 0;
     padding: 0;
+    color: #333;
+    font-family: '微软雅黑';
 }
 
 a{
-    color: #333;
+    color: #111;
 }
 
 a:hover
@@ -20,10 +22,24 @@ ul {
     list-style-type: none!important;
 }
 
+.nav-a{
+    font-size: 120%;
+    padding: 5px 0;
+}
 
 .pre{
     line-height: 1.25;
     font-size: 120%;
-    background-color:#fff!important;
-    border:0!important;
+    background-color: #fff!important;
+    border: 0!important;
+}
+
+.blogs-a{
+    font-size: 18px;
+    margin-bottom: 15px;
+}
+
+.hr{
+    padding: 0;
+    margin: 0;
 }
