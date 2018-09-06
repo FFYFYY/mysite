@@ -3,4 +3,4 @@
 
 {% block body-a %}{{ blogtype_title }}{% endblock body-a %}
 
-{% block body-b %} <span class="hidden-md hidden-lg"><a href="{% url 'blog:blogs' %}">查看所有</a> </span> {% endblock body-b %}
+{% block body-b %}<a class="hidden-md hidden-lg" href="{% url 'blog:blogs' %}">查看所有</a>{% endblock body-b %}

@@ -63,34 +63,33 @@
 {% block content %}
 {% endblock %}
 
+<div id="up-and-down">
 <div class="hidden-md hidden-lg">   <!--小屏幕返回顶部和底部-->
-  <a href="#Top" id="totop" style="position:fixed; right:14px; bottom:100px; display:none;">
-    <span class="glyphicon glyphicon-menu-up" style="font-size:20px;" aria-hidden="False"></span>
+  <a href="#Top" id="totop" class="totop">
+    <span class="glyphicon glyphicon-menu-up"></span>
   </a>
-  <a href="#Bottom" id="tobottom" style="position:fixed; right:14px; bottom:80px; display:none; ">
-    <span class="glyphicon glyphicon-menu-down" style="font-size:20px;" aria-hidden="False"></span>
+  <a href="#Bottom" id="tobottom" class="tobottom">
+    <span class="glyphicon glyphicon-menu-down"></span>
   </a>
 </div>
 
 <div class="hidden-xs hidden-sm">     <!--大屏幕返回顶部和底部-->
-  <a href="#Top" id="gotop" style="position:fixed; right:23%; bottom:100px; display:none;">
-    <span class="glyphicon glyphicon-menu-up" style="font-size:30px;"></span>
+  <a href="#Top" id="gotop" class="gotop">
+    <span class="glyphicon glyphicon-menu-up"></span>
   </a>
-  <a href="#Bottom" id="gobottom" style="position:fixed; right:23%; bottom:75px; display:none;">
-    <span class="glyphicon glyphicon-menu-down" style="font-size:30px;"></span>
+  <a href="#Bottom" id="gobottom" class="gobottom">
+    <span class="glyphicon glyphicon-menu-down"></span>
   </a>
 </div>
-
+</div>
 <span id="Bottom"></span>
 <script>
     if ($(document).height() > 1000){
-       document.getElementById("gotop").style.display="inline";
-       document.getElementById("gobottom").style.display="inline";
-       document.getElementById("totop").style.display="inline";
-       document.getElementById("tobottom").style.display="inline";
+       document.getElementById("up-and-down").style.display="inline";
     }
     {% block script_extends %}
     {% endblock %}
+
 </script>
 </body>
 </html>
