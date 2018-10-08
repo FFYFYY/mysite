@@ -4,7 +4,6 @@
 * {
     margin: 0;
     padding: 0;
-    color: #555;
 }
 
 a{
@@ -20,6 +19,10 @@ a:hover
 ul {
     list-style-type: none!important;
 }
+
+input[type="email"]:invalid{color:red;}
+
+input[type="email"]:valid{color:green;}
 
 .nav-a{
     font-size: 120%;

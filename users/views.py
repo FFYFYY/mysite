@@ -1,13 +1,9 @@
 import string
 import random
-import time
-import smtplib
-from email.mime.text import MIMEText
-from mysite.settings import EMAIL
 from django.core.mail import send_mail
+from mysite.settings import DEFAULT_FROM_EMAIL
 from django.http import JsonResponse
 from django.shortcuts import render, redirect
-from django.http import HttpResponseRedirect
 from django.urls import reverse
 from django.contrib.auth import login, logout, authenticate
 from .forms import RegisterForm, LoginForm
@@ -68,25 +64,12 @@ def send_code(request):
         data['message'] = '该邮箱地址已注册'
         return JsonResponse(data)
     code = ''.join(random.sample(string.digits, 6))
-    user = EMAIL['USER']
-    pwd = EMAIL['PWD']
-    to = email
-    msg = MIMEText("""<h3>哈哈哈，你终于来了！</h3><br><P>您正在注册<光着脚丫子的鱼>，名字不好听请多多包含。</p>
-            <p>这是你的验证码<span style="font-weight:bold;color:#da8e8c;font-size:25px;border-bottom: 1px dashed rgb(204, 204, 204);">{0}</span>，
-            请收好，30分钟之内有效哦！</p>""".format(code), 'html', 'utf-8')
-    msg["Subject"] = "光着脚丫子的鱼--账号注册"
-    msg["From"] = user
-    msg["To"] = to
+    html_msg = """<h3>欢迎注册<光着脚丫子的鱼><h3>
+                <p>这是你的验证码<span style="font-weight:bold;color:#da8e8c;font-size:25px;border-bottom: 1px dashed rgb(204, 204, 204);">{0}</span>，
+                请收好，记得不要告诉别人哦！</p>""".format(code)
     try:
-        s = smtplib.SMTP_SSL("smtp.qq.com", 465)
-
-        s.login(user, pwd)
-
-        s.sendmail(user, to, msg.as_string())
-
-        s.quit()
-
-    except smtplib.SMTPException:
+        send_mail('光着脚丫子的鱼--账号注册', '', DEFAULT_FROM_EMAIL, [email], fail_silently=False, html_message=html_msg)
+    except Exception:
         data['status'] = 'ERROR'
         data['message'] = '请输入正确的邮箱地址'
         return JsonResponse(data)
