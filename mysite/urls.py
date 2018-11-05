@@ -22,6 +22,4 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('blogs/', include(('blog.urls', 'blog'))),
     path('users/', include(('users.urls', 'users'))),
-    path('novels/', include(('novels.urls', 'novels'))),
-    path('wechat/', include(('wechat.urls', 'wechat'))),
 ]
