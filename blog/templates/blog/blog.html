@@ -1,0 +1,35 @@
+{% extends 'blog/blogbase.html' %}
+{% load static %}
+
+{% block title %} {{ blog.title }} {% endblock %}
+
+{% block head_extends %}
+<link rel="stylesheet" type="text/css" href="{% static 'css/monokai.css' %}">
+{% endblock head_extends %}
+
+{% block body %}
+<div class="containner-fluid">
+  <div class="panel panel-success">
+    <div style="overflow: auto;">
+      <div class="panel-body text-center">
+        <h3>{{ blog.title }}</h3>
+        <small>
+          分类：<a href="{% url 'blog:blogtype' blog.blogtype.id %}">
+          {{ blog.blogtype.title }}</a>&nbsp&nbsp&nbsp&nbsp
+          阅读次数：{{ blog.views }}&nbsp&nbsp&nbsp&nbsp
+          获得点赞：{{ blog.stars }}&nbsp&nbsp&nbsp&nbsp
+          <span class="hidden-md hidden-lg"><br></span>
+          发表于：{{ blog.created_time | date:'Y-m-d H:i' }}
+        </small><hr>
+      </div>
+
+      <div class="panel-body">
+        <p>{{ blog.content|safe }}</p>
+        <hr style="margin-top:100px;">
+      </div>
+      <div class="panel-body text-center">感谢您的阅读</div>
+    </div>
+  </div>
+</div>
+
+{% endblock %}

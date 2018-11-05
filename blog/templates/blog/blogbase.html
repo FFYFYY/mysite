@@ -1,0 +1,58 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12 col-sm-12 col-md-9">
+      {% block body %} {% block body-a %} {% endblock body-a %} {% endblock body %}
+    </div>
+    <div class="col-md-3 hidden-xs hidden-sm hidden-print">
+      <!--<div class="lg-tb">   &lt;!&ndash;大屏幕返回顶部和底部&ndash;&gt;-->
+        <!--<a href="#Top" style="display: block">-->
+          <!--<span class="glyphicon glyphicon-menu-up"></span>-->
+        <!--</a>-->
+        <!--<a href="#Bottom" id="gobottom" class="gobottom">-->
+          <!--<span class="glyphicon glyphicon-menu-down"></span>-->
+        <!--</a>-->
+      <!--</div>-->
+
+      <div class="panel panel-success">
+        <div class="panel-heading">
+          <img class="img-circle img-responsive" src="{% static 'img/1.jpg' %}"/>
+        </div>
+      </div>
+      <div class="panel panel-success text-center">
+        <div class="panel-heading">
+          <span class="panel-title">分类</span>
+        </div>
+        <div class="panel-body">
+          <a href="{% url 'blog:blogs' %}">全部({{ blog_count }})</a>
+        </div>
+        <hr class="hr">
+        {% for blogtype in blogtypes %}
+        <div class="panel-body">
+          <a href="{% url 'blog:blogtype' blogtype.id %}">{{ blogtype.title }}
+            ({{ blogtype.blog_count }})</a>
+        </div>
+        <hr class="hr">
+        {% empty %}
+        <div class="panel-body">
+          暂无分类
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+  <!--<div class="hidden-md hidden-lg">    &lt;!&ndash;小屏幕返回顶部和底部&ndash;&gt;-->
+    <!--<div class="sm-tb">-->
+      <!--<a href="#Top" style="display: block;">-->
+        <!--<span class="glyphicon glyphicon-menu-up"></span>-->
+      <!--</a>-->
+      <!--<a href="#Bottom">-->
+        <!--<span class="glyphicon glyphicon-menu-down"></span>-->
+      <!--</a>-->
+    <!--</div>-->
+  <!--</div>-->
+<!--</div>-->
+{% endblock %}

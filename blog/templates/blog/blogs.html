@@ -1,0 +1,42 @@
+{% extends 'blog/blogbase.html' %}
+
+{% block title %} 博客 {% endblock %}
+
+{% block body %}
+<div class="panel panel-success">
+  <div class="panel-heading">
+    <span class="panel-title">
+      当前分类：{% block body-a %}全部{% endblock body-a %}&nbsp&nbsp
+      共{{ blogs.count }}篇&nbsp&nbsp
+      {% block body-b %} {% endblock body-b %}
+    </span>
+  </div>
+  <div class="panel-body">
+    {% for blog in blogs %}
+    <div class="row">
+      <div class="col-xs-12 col-md-12 blogs-a">
+        <a href="{% url 'blog:blog' blog.id %}">{{ blog.title }}</a>
+      </div>
+      <div class="col-xs-4 col-md-3">
+        分类： <a href="{% url 'blog:blogtype' blog.blogtype.id %}">{{ blog.blogtype }}</a>
+      </div>
+      <div class="hidden-xs	col-sm-3 col-md-2">
+        <spqn class="glyphicon glyphicon-eye-open" title="阅读次数"></spqn>
+        {{ blog.views }}
+      </div>
+      <div class="hidden-xs	hidden-sm col-md-2">
+        <spqn class="glyphicon glyphicon-thumbs-up" title="获赞数"></spqn>
+        {{ blog.stars }}
+      </div>
+      <div class="col-xs-6 col-sm-3 col-md-3">
+        <span class="glyphicon glyphicon-time" title="创作时间"></span> {{ blog.created_time|date:'Y-m-d' }}
+      </div>
+    </div>
+    <hr>
+    {% empty %}
+    这个人很懒，还什么都没写。
+    {% endfor %}
+  </div>
+  <div class="panel-footer text-center">～没有啦～</div>
+</div>
+{% endblock %}

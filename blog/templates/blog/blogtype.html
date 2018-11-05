@@ -1,0 +1,28 @@
+{% extends 'blog/blogbase.html' %}
+
+{% block title %} 分类 {% endblock %}
+
+{% block content %}
+<div class="hidden-md	hidden-lg	 col-xs-12 col-sm-12">
+  <div class="panel panel-success">
+    <div class="panel-heading text-center">
+      <span class="panel-title">分类</span>
+    </div>
+    <div class="panel-body text-center">
+      <a href="{% url 'blog:blogs' %}">全部({{ blog_count }})</a>
+    </div>
+    <hr class="hr">
+    {% for blogtype in blogtypes %}
+    <div class="panel-body text-center">
+      <a href="{% url 'blog:blogtype' blogtype.id %}">{{ blogtype.title }}
+        ({{ blogtype.blog_count }})</a>
+    </div>
+    <hr class="hr">
+    {% empty %}
+    <div class="panel-body text-center">
+      暂无分类
+    </div>
+    {% endfor %}
+  </div>
+</div>
+{% endblock %}
